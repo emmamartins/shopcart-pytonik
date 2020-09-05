@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Majestic Admin</title>
+  {% call extend 'admin.inc.css'%}
+  <link rel="shortcut icon" href="{% call path 'public/admin-a/images/favicon.png'  'True' %}" />
+
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% call extend 'admin.inc.navbar' %}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      {% call extend 'admin.inc.sidebar' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          
+          
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+       {% call extend 'admin.inc.footer'%}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  {% call extend 'admin.inc.js'%}
+  
+</body>
+
+</html>
+

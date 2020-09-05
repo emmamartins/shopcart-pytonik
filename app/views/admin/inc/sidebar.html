@@ -1,0 +1,97 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="mdi mdi-home menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="false" aria-controls="ui-basic">
+          <i class="mdi mdi-circle-outline menu-icon"></i>
+          <span class="menu-title">Users</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="users">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/users' %}">List</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/add/users' %}">Add</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <i class="mdi mdi-circle-outline menu-icon"></i>
+          <span class="menu-title">Categories</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="">List</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Add</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#products" aria-expanded="false" aria-controls="ui-basic">
+          <i class="mdi mdi-circle-outline menu-icon"></i>
+          <span class="menu-title">Products</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="products">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/products' %}">List</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/add/products' %}">Add</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false" aria-controls="ui-basic">
+          <i class="mdi mdi-circle-outline menu-icon"></i>
+          <span class="menu-title">Pages</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="pages">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/pages' %}">List</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/add/pages' %}">Add</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#menus" aria-expanded="false" aria-controls="ui-basic">
+          <i class="mdi mdi-circle-outline menu-icon"></i>
+          <span class="menu-title">Menus</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="menus">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/menus' %}">List</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/add/menus' %}">Add</a></li>
+          </ul>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#administrators" aria-expanded="false" aria-controls="ui-basic">
+          <i class="mdi mdi-circle-outline menu-icon"></i>
+          <span class="menu-title">Administrators</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="administrators">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/administrators' %}">List</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% call url 'admin/add/administrators' %}">Add</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% call url 'admin/logout' %}">
+          <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+          <span class="menu-title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>

@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=604800" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> {{title}}</title>
+
+    <link href="{% call path 'public/cart-static/images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+
+    {% call extend "{{theme}}.inc.css" "True" %}
+    {% call extend "{{theme}}.inc.js" "True" %}
+
+</head>
+
+<body>
+
+
+    <b class="screen-overlay"></b>
+
+    <header class="section-header">
+        {% call extend "{{theme}}.inc.header" "True" %}
+
+        {% call extend "{{theme}}.inc.menu" "True" %}
+
+    </header> <!-- section-header.// -->
+
+
+    <!-- ========================= SECTION PAGETOP ========================= -->
+    <section class="section-pagetop bg-gray">
+        <div class="container">
+            <h2 class="title-page">{{title}}</h2>
+        </div> <!-- container //  -->
+    </section>
+    <!-- ========================= SECTION PAGETOP END// ========================= -->
+
+
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-content padding-y">
+        <div class="container">
+
+            <div class="row">
+                <aside class="col-md-3">
+                    {% call extend "{{theme}}.inc.sidenav" "True" %}
+
+                </aside> <!-- col.// -->
+                <main class="col-md-9">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <article class="box mb-4">
+                                <form method="post" name="addaddress" id="addaddress" action="{% call url 'ajax/update_address' %}">
+                                    {{flash}}
+                                    <input name="address_id" id="address_id" value="{{address_id}}" type="hidden" />
+                                   
+                                    <div class="form-group">
+
+                                        <label for="address_country"> Country : </label>
+                                        <select id="country_id" name="address_country" class="form-control">
+                                            
+                                            <option value="">Choose Country </option>
+
+                                            {% each Countries %}
+                                            <option {% if ..country_id == it.country_id %}
+                                            selected
+                                            {% endif %} phonecode="{{it.dial_code}}" value="{{it.country_id}}"> {{it.country_name}} </option>
+                                            {% endeach %}
+
+                                        </select>
+                                    </div>
+
+                                    <input name="users_id" type="hidden" value="{{users_id}}" />
+                                    <div class="form-group">
+
+                                        <label for="address_state"> State : </label>
+                                        <select id="state_id" name="address_state" class="form-control">
+                                            <option value=""></option>
+                                            {% if countState > 0 %}
+                                                {% each State %}
+                                                <option  {% if ..state_id == it.state_id %}
+                                                selected
+                                                {% endif %}  value="{{it.state_id}}">{{it.state_name}}</option>
+                                                {% endeach %}
+                                            {% endif %}
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address_city"> City : </label>
+                                        <select id="city_id" name="address_city" class="form-control">
+                                            <option value=""> </option>
+                                            {% if countCity > 0 %}
+                                                {% each City %}
+                                                <option value="{{it.city_id}}">{{it.city_name}}</option>
+                                                {% endeach %}
+                                            {% endif %}
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address_name"> Address : </label>
+                                        <textarea type="text" class="form-control" name="address_name" id="address_name"
+                                            placeholder="Enter Address" >{{address_name}}</textarea>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label for="address_postal_code"> Postal Code : </label>
+                                        <input id="address_postal_code" value="{{address_postal_code}}" name="address_postal_code" class="form-control">
+
+                                    </div>
+                                    
+
+                                    <div class="form-group">
+                                        <label for="address_phone"> Phone Number : </label>
+                                        <input id="address_phone"  name="address_phone"   value="{{address_phone}}" class="form-control">
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="custom-control custom-checkbox"> 
+                                            <input type="checkbox"
+                                                class="custom-control-input" {% if address_default == '1'%} checked="checked" {% endif %} name="address_default">
+                                            <div class="custom-control-label"> Make Default </div>
+                                        </label>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" name="actionbtn"
+                                            id="actionbtn">Add </button>
+
+                                            <button type="reset" class="btn btn-default" name="actionbtn"
+                                            id="actionbtn">Reset</button>
+                                    </div>
+
+                                </form>
+                            </article>
+                        </div> <!-- col.// -->
+
+                    </div> <!-- row.// -->
+
+                </main> <!-- col.// -->
+            </div>
+
+        </div> <!-- container .//  -->
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="section-footer bg-secondary">
+        <div class="container">
+            <section class="footer-top padding-y-lg text-white">
+                <div class="row">
+                    <aside class="col-md col-6">
+                        <h6 class="title">Brands</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="#">Adidas</a></li>
+                            <li> <a href="#">Puma</a></li>
+                            <li> <a href="#">Reebok</a></li>
+                            <li> <a href="#">Nike</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-md col-6">
+                        <h6 class="title">Company</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="#">About us</a></li>
+                            <li> <a href="#">Career</a></li>
+                            <li> <a href="#">Find a store</a></li>
+                            <li> <a href="#">Rules and terms</a></li>
+                            <li> <a href="#">Sitemap</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-md col-6">
+                        <h6 class="title">Help</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="#">Contact us</a></li>
+                            <li> <a href="#">Money refund</a></li>
+                            <li> <a href="#">Order status</a></li>
+                            <li> <a href="#">Shipping info</a></li>
+                            <li> <a href="#">Open dispute</a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-md col-6">
+                        <h6 class="title">Account</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="#"> User Login </a></li>
+                            <li> <a href="#"> User register </a></li>
+                            <li> <a href="#"> Account Setting </a></li>
+                            <li> <a href="#"> My Orders </a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-md">
+                        <h6 class="title">Social</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
+                            <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
+                            <li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
+                            <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
+                        </ul>
+                    </aside>
+                </div> <!-- row.// -->
+            </section> <!-- footer-top.// -->
+
+            <section class="footer-bottom text-center">
+
+                <p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
+                <p class="text-muted"> &copy 2019 Company name, All rights reserved </p>
+                <br>
+            </section>
+        </div><!-- //container -->
+    </footer>
+    <!-- ========================= FOOTER END // ========================= -->
+
+</body>
+
+</html>

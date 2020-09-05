@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Website title - bootstrap html template</title>
+
+<link href="{% call path 'public/cart-static/images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+
+{% call extend "{{theme}}.inc.css" "True" %}
+{% call extend "{{theme}}.inc.js" "True" %}
+
+</head>
+<body>
+
+
+<header class="section-header">
+
+    {% call extend "{{theme}}.inc.header" "True" %}
+
+    {% call extend "{{theme}}.inc.menu" "True" %}
+
+</header> <!-- section-header.// -->
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Payment Details
+                        </h3>
+                        <div class="checkbox pull-right">
+                            <label>
+                                <input type="checkbox" />
+                                Remember
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                        <div class="form-group">
+                            <label for="cardNumber">
+                                CARD NUMBER</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                    required autofocus />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="expityMonth">
+                                        EXPIRY DATE</label>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                    </div>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cvCode">
+                                        CV CODE</label>
+                                    <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>4200</span> Final Payment</a>
+                    </li>
+                </ul>
+                <br/>
+                <a href="http://www.jquery2dotnet.com" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="section-footer bg-secondary">
+	<div class="container">
+		<section class="footer-top padding-y-lg text-white">
+			<div class="row">
+				<aside class="col-md col-6">
+					<h6 class="title">Brands</h6>
+					<ul class="list-unstyled">
+						<li> <a href="#">Adidas</a></li>
+						<li> <a href="#">Puma</a></li>
+						<li> <a href="#">Reebok</a></li>
+						<li> <a href="#">Nike</a></li>
+					</ul>
+				</aside>
+				<aside class="col-md col-6">
+					<h6 class="title">Company</h6>
+					<ul class="list-unstyled">
+						<li> <a href="#">About us</a></li>
+						<li> <a href="#">Career</a></li>
+						<li> <a href="#">Find a store</a></li>
+						<li> <a href="#">Rules and terms</a></li>
+						<li> <a href="#">Sitemap</a></li>
+					</ul>
+				</aside>
+				<aside class="col-md col-6">
+					<h6 class="title">Help</h6>
+					<ul class="list-unstyled">
+						<li> <a href="#">Contact us</a></li>
+						<li> <a href="#">Money refund</a></li>
+						<li> <a href="#">Order status</a></li>
+						<li> <a href="#">Shipping info</a></li>
+						<li> <a href="#">Open dispute</a></li>
+					</ul>
+				</aside>
+				<aside class="col-md col-6">
+					<h6 class="title">Account</h6>
+					<ul class="list-unstyled">
+						<li> <a href="#"> User Login </a></li>
+						<li> <a href="#"> User register </a></li>
+						<li> <a href="#"> Account Setting </a></li>
+						<li> <a href="#"> My Orders </a></li>
+					</ul>
+				</aside>
+				<aside class="col-md">
+					<h6 class="title">Social</h6>
+					<ul class="list-unstyled">
+						<li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
+						<li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
+						<li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
+						<li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
+					</ul>
+				</aside>
+			</div> <!-- row.// -->
+		</section>	<!-- footer-top.// -->
+
+		<section class="footer-bottom text-center">
+		
+				<p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
+				<p class="text-muted"> &copy 2019 Company name, All rights reserved </p>
+				<br>
+		</section>
+	</div><!-- //container -->
+</footer>
+<!-- ========================= FOOTER END // ========================= -->
+
+
+</body>
+</html>

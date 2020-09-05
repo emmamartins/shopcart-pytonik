@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Majestic Admin</title>
+  {% call extend 'admin.inc.css'%}
+  <link rel="shortcut icon" href="{% call path 'public/admin-a/images/favicon.png'  'True' %}" />
+
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% call extend 'admin.inc.navbar' %}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      {% call extend 'admin.inc.sidebar' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          
+          <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card ">
+                <div class="card-body col-10">
+                  <h4 class="card-title">{{title}}</h4>
+                  
+                  <form class="forms-sample" enctype="multipart/form-data" method="POST" action="{% call url 'ajax/add_products' %}">
+                    {{flash}}
+
+                    
+                    <input name="owner_id" type="hidden" value="{{admin_id}}" id="owner_id" type="text" />
+                    
+                    <div class="row">
+                    <div class="col-6">
+                    <div class="form-group">
+                      <label for="products_category">Category</label>
+                        <select class="form-control" title="Choose Catagories" name="products_category" multiple data-max-options="5" id="products_category">
+                        {% if  countCat > 0%}
+                          {% each Cat %}
+                            {% each it.Categories %}
+                              <optgroup label="{{it.categories_name}}"  data-max-options="5">
+                                {% each it.subCategories %}
+                                  {% if it.count > 0 %}
+                                  <option value="{{it.categories_id}}">{{it.categories_name}}</option>
+                                  {% endif %}
+                                {% endeach %}
+                              </optgroup>
+                              
+                            {% endeach %}
+                          {% endeach %}
+                        {% endif %}
+                        </select>
+                      </div>
+                    </div>
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label for="exampleSelectGender">Condition</label>
+                            <select class="form-control" title="Choose Condition"  multiple data-max-options="1" name="products_category" id="products_category">
+                              {% if countCondition > 0 %}
+
+                                {% each Condition %}
+                                <option value="{{it.condition_id}}">{{it.condition_name}}</option>
+                                {% endeach %}
+
+                              {% endif %}
+
+                            </select>
+                          </div>
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                      <label for="products_name">Name</label>
+                      <input type="text" class="form-control" id="products_name" name="products_name" placeholder="Name">
+                    </div>
+                    <div class="row">
+                    <div class="col-4">
+                    <div class="form-group">
+                      <label for="products_amount">Amount</label>
+                      <input type="number" class="form-control" id="products_amount" name="products_amount" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="products_discount">Discount</label>
+                      <input type="number" class="form-control" id="products_discount" name="products_discount" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="products_quantity">Quantity</label>
+                      <input type="number" class="form-control" id="products_quantity" name="products_quantity" placeholder="0">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="products_size">Size</label>
+                      <select class="form-control" id="products_size" name="products_size">
+                        <option></option>
+                        
+                      </select>
+                    </div>
+                    </div>
+                    <div class="col-6">
+                    <div class="form-group">
+                      <label for="products_color">Color</label>
+                      <select class="form-control" id="products_color" name="products_color">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                    <div class="form-group">
+                      <label>File upload</label>
+                      <div class="input-group col-xs-12">
+                        <input type="file" multiple accept="image/*" class="form-control file-upload-info"  name="products_pictures[]" id="products_pictures" placeholder="Upload Image">
+                        
+                      </div>
+                    </div>
+                   
+                    <div class="form-group">
+                      <label for="products_description">Description</label>
+                      <textarea style="height: 450px;" class="form-control" id="products_description" name="products_description" placeholder="Product Description"></textarea>
+                    
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+       {% call extend 'admin.inc.footer'%}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  {% call extend 'admin.inc.js'%}
+  <script src="{% call path 'public/admin-a/vendors/ckeditor/ckeditor.js' %}" ></script>
+ 
+  <script>
+    $(function () {
+    $('select').selectpicker();
+    CKEDITOR.replace( 'products_description' );
+});
+
+  </script>
+  
+</body>
+
+</html>
+
